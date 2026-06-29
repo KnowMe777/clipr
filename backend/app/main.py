@@ -18,7 +18,7 @@ async def startup():
 @app.get("/health")
 async def health(
     db: AsyncSession = Depends(get_db),
-    redis_client: AsyncSession = Depends(get_redis)
+    redis_client = Depends(get_redis)
 ):
     try:
         await db.execute(text("SELECT 1"))
